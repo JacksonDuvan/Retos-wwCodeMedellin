@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX just js</title>
+    <!-- Estos scripts son para que puedas usar JSX y React y transpirarlos con BABEL -->
+    <script src="https://unpkg.com/react@16.8.6/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone@7.9.6/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script type="text/babel">
+
+    const rootElement = document.getElementById('root')
+    const lista = ['Amo el codigo 💻', 'Amo aprender 📚', 'Amo el skate 🛹']
+
+    const App = ({ lista }) => {
+        return (
+            <div>
+                <h1>Cosas que amo</h1>
+                <ul>
+                    {
+                        lista.map((item, index) => <li key={index}>{item}</li>)
+                    }   
+                </ul>
+            </div>
+        )
+    }
+
+    ReactDOM.render(<App lista={lista}/>, rootElement)
+    
+
+</script>
+
+</html>
